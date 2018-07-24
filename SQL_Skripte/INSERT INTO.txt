@@ -1,0 +1,1 @@
+INSERT INTO kc.test_cup_spl (Team1, Team2, X, Gruppe) VALUES ('a1', 'a4', '0', 'a')

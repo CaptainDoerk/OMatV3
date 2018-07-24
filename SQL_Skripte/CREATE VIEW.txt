@@ -1,0 +1,18 @@
+CREATE VIEW kc.v___test__spl AS
+  SELECT t1.TeamName AS TeamA, t2.TeamName AS TeamB, s.SpielID AS SpielID, s.Team1 AS Team1, s.Team2 AS Team2, s.Tore1 AS Tore1, s.Tore2 AS Tore2, s.X AS X, s.Art AS Art
+  FROM
+  (
+    (teams t1 join teams t2)
+    JOIN
+    __test__spl s) where ((t1.TeamID = s.Team1) and (t2.TeamID = s.Team2)
+  );
+
+
+CREATE VIEW view_spl AS
+  SELECT t1.TeamName AS TeamA, s.Team1 AS Team1
+  FROM (teams AS t1 JOIN __test__spl AS s)
+  WHERE (t1.TeamID = s.Team1)
+
+myAccess.fireSQL("CREATE VIEW kc.v_" + tournamentName + "_spl " +
+	"AS SELECT t1.TeamName AS TeamA,t2.TeamName AS TeamB,s.SpielID AS SpielID,s.Team1 AS Team1,s.Team2 AS Team2,s.Tore1 AS Tore1,s.Tore2 AS Tore2,s.X AS X,s.Art AS Art " +
+	"FROM ((teams t1 join teams t2) JOIN " + tournamentName + "_spl s) WHERE ((t1.TeamID = s.Team1) AND (t2.TeamID = s.Team2));");				 		

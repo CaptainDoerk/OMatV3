@@ -1,0 +1,31 @@
+CREATE VIEW md.V_Tabelle 
+AS select 	T.ID AS ID, 
+		T.Jahr AS Jahr, 
+		T.Platz AS Platz, 
+		N.Name AS TeamName, 
+		T.TeamID AS TeamID, 
+		N_one.Vorname AS Sp1Vor, 
+		N_one.Nickname AS Sp1Nic, 
+		N_one.Name AS Sp1Nac, 
+		T.Spieler1 AS Spieler1, 
+		N_two.Vorname AS Sp2Vor, 
+		N_two.Nickname AS Sp2Nic, 
+		N_two.Name AS Sp2Nac, 
+		T.Spieler2 AS Spieler2, 
+		N_thr.Vorname AS Sp3Vor, 
+		N_thr.Nickname AS Sp3Nic, 
+		N_thr.Name AS Sp3Nac, 
+		T.Spieler3 AS Spieler3, 
+		T.Spiele AS Spiele, 
+		T.Siege AS S, 
+		T.Unentschieden AS U, 
+		T.Niederlagen AS N, 
+		T.Punkte AS Punkte, 
+		T.ToreP AS ToreP, 
+		T.ToreM AS ToreM 
+   from md.Tabelle T 
+   join md.Teams N on (N.TeamID = T.TeamID) 
+   left join md.Spieler N_one on (N_one.SpielerID = T.Spieler1) 
+   left join md.Spieler N_two on (N_two.SpielerID = T.Spieler2) 
+   left join md.Spieler N_thr on (N_thr.SpielerID = T.Spieler3) 
+   order by T.ID;

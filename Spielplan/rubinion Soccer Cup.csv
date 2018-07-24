@@ -1,0 +1,10 @@
+1;1;rubinion AG;Reinz;false
+2;1;Beiselen;DWEKD;false
+3;2;ITML;rubinion AG;false
+4;2;Beiselen;Reinz;false
+5;3;DWEKD;ITML;false
+6;3;rubinion AG;Beiselen;false
+7;4;Reinz;ITML;false
+8;4;DWEKD;rubinion AG;false
+9;5;ITML;Beiselen;false
+10;5;Reinz;DWEKD;false
